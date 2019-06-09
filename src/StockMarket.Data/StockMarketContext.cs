@@ -12,7 +12,15 @@ namespace StockMarket.Data
         {
         }
 
-        public DbSet<Setting> Settings { get; set; }
+        public DbSet<Batch> Batch { get; set; }
+        public DbSet<EntryOrder> EntryOrder { get; set; }
+        public DbSet<ExitOrder> ExitOrder { get; set; }
+        public DbSet<Feed> Feed { get; set; }
+        public DbSet<Holiday> Holiday { get; set; }
+        public DbSet<Market> Market { get; set; }
+        public DbSet<ScanResult> ScanResult { get; set; }
+        public DbSet<Scrip> Scrip { get; set; }
+        public DbSet<Setting> Setting { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
