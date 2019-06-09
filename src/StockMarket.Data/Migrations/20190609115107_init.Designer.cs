@@ -10,7 +10,7 @@ using StockMarket.Data;
 namespace StockMarket.Data.Migrations
 {
     [DbContext(typeof(StockMarketContext))]
-    [Migration("20190609114145_init")]
+    [Migration("20190609115107_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,8 +30,6 @@ namespace StockMarket.Data.Migrations
                     b.Property<DateTime?>("AprovalFinish");
 
                     b.Property<DateTime?>("AprovalStart");
-
-                    b.Property<DateTime>("CreatedDate");
 
                     b.Property<DateTime>("Date");
 
@@ -53,8 +51,6 @@ namespace StockMarket.Data.Migrations
 
                     b.Property<int>("StatusId");
 
-                    b.Property<DateTime>("UpdatedDate");
-
                     b.HasKey("Id");
 
                     b.HasIndex("MarketId");
@@ -72,8 +68,6 @@ namespace StockMarket.Data.Migrations
 
                     b.Property<string>("BrockerRef");
 
-                    b.Property<DateTime>("CreatedDate");
-
                     b.Property<DateTime>("Date");
 
                     b.Property<int>("ExecutedQuantity");
@@ -87,8 +81,6 @@ namespace StockMarket.Data.Migrations
                     b.Property<int>("ScripId");
 
                     b.Property<int>("Status");
-
-                    b.Property<DateTime>("UpdatedDate");
 
                     b.HasKey("Id");
 
@@ -105,8 +97,6 @@ namespace StockMarket.Data.Migrations
 
                     b.Property<string>("BrockerRef");
 
-                    b.Property<DateTime>("CreatedDate");
-
                     b.Property<DateTime>("Date");
 
                     b.Property<int>("EntryOrderId");
@@ -120,8 +110,6 @@ namespace StockMarket.Data.Migrations
                     b.Property<decimal>("Price");
 
                     b.Property<int>("Status");
-
-                    b.Property<DateTime>("UpdatedDate");
 
                     b.HasKey("Id");
 
@@ -138,8 +126,6 @@ namespace StockMarket.Data.Migrations
 
                     b.Property<decimal>("Close");
 
-                    b.Property<DateTime>("CreatedDate");
-
                     b.Property<DateTime>("Date");
 
                     b.Property<decimal>("High");
@@ -153,8 +139,6 @@ namespace StockMarket.Data.Migrations
                     b.Property<int>("ScripId");
 
                     b.Property<int?>("StatusId");
-
-                    b.Property<DateTime>("UpdatedDate");
 
                     b.Property<int>("Volume");
 
@@ -171,15 +155,11 @@ namespace StockMarket.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreatedDate");
-
                     b.Property<DateTime>("Date");
 
                     b.Property<int>("MarketId");
 
                     b.Property<string>("Reason");
-
-                    b.Property<DateTime>("UpdatedDate");
 
                     b.HasKey("Id");
 
@@ -196,8 +176,6 @@ namespace StockMarket.Data.Migrations
 
                     b.Property<TimeSpan>("Closing");
 
-                    b.Property<DateTime>("CreatedDate");
-
                     b.Property<string>("Name");
 
                     b.Property<TimeSpan>("Opening");
@@ -205,8 +183,6 @@ namespace StockMarket.Data.Migrations
                     b.Property<int>("Status");
 
                     b.Property<int>("TimeZoneInfo");
-
-                    b.Property<DateTime>("UpdatedDate");
 
                     b.HasKey("Id");
 
@@ -220,8 +196,6 @@ namespace StockMarket.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("BatchId");
-
-                    b.Property<DateTime>("CreatedDate");
 
                     b.Property<DateTime>("Date");
 
@@ -237,8 +211,6 @@ namespace StockMarket.Data.Migrations
 
                     b.Property<int?>("Status");
 
-                    b.Property<DateTime>("UpdatedDate");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BatchId");
@@ -253,8 +225,6 @@ namespace StockMarket.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedDate");
 
                     b.Property<int>("FaceValue");
 
@@ -280,8 +250,6 @@ namespace StockMarket.Data.Migrations
 
                     b.Property<string>("Symbol");
 
-                    b.Property<DateTime>("UpdatedDate");
-
                     b.HasKey("Id");
 
                     b.HasIndex("MarketId");
@@ -295,15 +263,11 @@ namespace StockMarket.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreatedDate");
-
                     b.Property<string>("Key");
 
                     b.Property<int>("Status");
 
                     b.Property<int>("Type");
-
-                    b.Property<DateTime>("UpdatedDate");
 
                     b.Property<string>("Value");
 
