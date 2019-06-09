@@ -18,6 +18,7 @@ namespace StockMarket.Web.Controllers
         }
 
         #region Batch
+
         [HttpGet]
         public ActionResult GetBatches()
         {
@@ -111,9 +112,11 @@ namespace StockMarket.Web.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
+
         #endregion Batch
 
         #region EntryOrder
+
         [HttpGet]
         public ActionResult GetEntryOrders()
         {
@@ -207,9 +210,11 @@ namespace StockMarket.Web.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
+
         #endregion EntryOrder
 
         #region ExitOrder
+
         [HttpGet]
         public ActionResult GetExitOrders()
         {
@@ -303,9 +308,11 @@ namespace StockMarket.Web.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
+
         #endregion ExitOrder
 
         #region Feed
+
         [HttpGet]
         public ActionResult GetFeeds()
         {
@@ -399,9 +406,11 @@ namespace StockMarket.Web.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
+
         #endregion Feed
 
         #region Holiday
+
         [HttpGet]
         public ActionResult GetHolidays()
         {
@@ -495,9 +504,11 @@ namespace StockMarket.Web.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
+
         #endregion Holiday
 
         #region Market
+
         [HttpGet]
         public ActionResult GetMarkets()
         {
@@ -591,9 +602,11 @@ namespace StockMarket.Web.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
+
         #endregion Market
 
         #region ScanResult
+
         [HttpGet]
         public ActionResult GetScanResults()
         {
@@ -687,9 +700,11 @@ namespace StockMarket.Web.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
+
         #endregion ScanResult
 
         #region Scrip
+
         [HttpGet]
         public ActionResult GetScrips()
         {
@@ -783,6 +798,7 @@ namespace StockMarket.Web.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
+
         #endregion Scrip
 
         #region Setting

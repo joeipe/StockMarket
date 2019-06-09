@@ -14,6 +14,7 @@ namespace StockMarket.Business.Services
         }
 
         #region Batch
+
         public IList<BatchVM> GetBatches()
         {
             var vm = _stockMarketDataSevice.GetBatches();
@@ -40,9 +41,11 @@ namespace StockMarket.Business.Services
         {
             _stockMarketDataSevice.DeleteBatch(value);
         }
+
         #endregion Batch
 
         #region EntryOrder
+
         public IList<EntryOrderVM> GetEntryOrders()
         {
             var vm = _stockMarketDataSevice.GetEntryOrders();
@@ -69,9 +72,11 @@ namespace StockMarket.Business.Services
         {
             _stockMarketDataSevice.DeleteEntryOrder(value);
         }
+
         #endregion EntryOrder
 
         #region ExitOrder
+
         public IList<ExitOrderVM> GetExitOrders()
         {
             var vm = _stockMarketDataSevice.GetExitOrders();
@@ -98,9 +103,11 @@ namespace StockMarket.Business.Services
         {
             _stockMarketDataSevice.DeleteExitOrder(value);
         }
+
         #endregion ExitOrder
 
         #region Feed
+
         public IList<FeedVM> GetFeeds()
         {
             var vm = _stockMarketDataSevice.GetFeeds();
@@ -127,9 +134,11 @@ namespace StockMarket.Business.Services
         {
             _stockMarketDataSevice.DeleteFeed(value);
         }
+
         #endregion Feed
 
         #region Holiday
+
         public IList<HolidayVM> GetHolidays()
         {
             var vm = _stockMarketDataSevice.GetHolidays();
@@ -156,9 +165,11 @@ namespace StockMarket.Business.Services
         {
             _stockMarketDataSevice.DeleteHoliday(value);
         }
+
         #endregion Holiday
 
         #region Market
+
         public IList<MarketVM> GetMarkets()
         {
             var vm = _stockMarketDataSevice.GetMarkets();
@@ -185,9 +196,11 @@ namespace StockMarket.Business.Services
         {
             _stockMarketDataSevice.DeleteMarket(value);
         }
+
         #endregion Market
 
         #region ScanResult
+
         public IList<ScanResultVM> GetScanResults()
         {
             var vm = _stockMarketDataSevice.GetScanResults();
@@ -214,9 +227,11 @@ namespace StockMarket.Business.Services
         {
             _stockMarketDataSevice.DeleteScanResult(value);
         }
+
         #endregion ScanResult
 
         #region Scrip
+
         public IList<ScripVM> GetScrips()
         {
             var vm = _stockMarketDataSevice.GetScrips();
@@ -243,6 +258,7 @@ namespace StockMarket.Business.Services
         {
             _stockMarketDataSevice.DeleteScrip(value);
         }
+
         #endregion Scrip
 
         #region Setting

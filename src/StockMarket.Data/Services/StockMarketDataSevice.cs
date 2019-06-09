@@ -14,6 +14,7 @@ namespace StockMarket.Data.Services
         }
 
         #region Batch
+
         public IList<BatchVM> GetBatches()
         {
             var data = _stockMarketUow.BatchRepo.GetAll();
@@ -48,9 +49,11 @@ namespace StockMarket.Data.Services
             _stockMarketUow.BatchRepo.Delete(data);
             _stockMarketUow.Save();
         }
+
         #endregion Batch
 
         #region EntryOrder
+
         public IList<EntryOrderVM> GetEntryOrders()
         {
             var data = _stockMarketUow.EntryOrderRepo.GetAll();
@@ -85,9 +88,11 @@ namespace StockMarket.Data.Services
             _stockMarketUow.EntryOrderRepo.Delete(data);
             _stockMarketUow.Save();
         }
+
         #endregion EntryOrder
 
         #region ExitOrder
+
         public IList<ExitOrderVM> GetExitOrders()
         {
             var data = _stockMarketUow.ExitOrderRepo.GetAll();
@@ -122,9 +127,11 @@ namespace StockMarket.Data.Services
             _stockMarketUow.ExitOrderRepo.Delete(data);
             _stockMarketUow.Save();
         }
+
         #endregion ExitOrder
 
         #region Feed
+
         public IList<FeedVM> GetFeeds()
         {
             var data = _stockMarketUow.FeedRepo.GetAll();
@@ -159,9 +166,11 @@ namespace StockMarket.Data.Services
             _stockMarketUow.FeedRepo.Delete(data);
             _stockMarketUow.Save();
         }
+
         #endregion Feed
 
         #region Holiday
+
         public IList<HolidayVM> GetHolidays()
         {
             var data = _stockMarketUow.HolidayRepo.GetAll();
@@ -196,9 +205,11 @@ namespace StockMarket.Data.Services
             _stockMarketUow.HolidayRepo.Delete(data);
             _stockMarketUow.Save();
         }
+
         #endregion Holiday
 
         #region Market
+
         public IList<MarketVM> GetMarkets()
         {
             var data = _stockMarketUow.MarketRepo.GetAll();
@@ -233,9 +244,11 @@ namespace StockMarket.Data.Services
             _stockMarketUow.MarketRepo.Delete(data);
             _stockMarketUow.Save();
         }
+
         #endregion Market
 
         #region ScanResult
+
         public IList<ScanResultVM> GetScanResults()
         {
             var data = _stockMarketUow.ScanResultRepo.GetAll();
@@ -270,9 +283,11 @@ namespace StockMarket.Data.Services
             _stockMarketUow.ScanResultRepo.Delete(data);
             _stockMarketUow.Save();
         }
+
         #endregion ScanResult
 
         #region Scrip
+
         public IList<ScripVM> GetScrips()
         {
             var data = _stockMarketUow.ScripRepo.GetAll();
@@ -307,6 +322,7 @@ namespace StockMarket.Data.Services
             _stockMarketUow.ScripRepo.Delete(data);
             _stockMarketUow.Save();
         }
+
         #endregion Scrip
 
         #region Setting
