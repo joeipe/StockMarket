@@ -10,7 +10,7 @@ using StockMarket.Data;
 namespace StockMarket.Data.Migrations
 {
     [DbContext(typeof(StockMarketContext))]
-    [Migration("20190609075007_init")]
+    [Migration("20190609114145_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -219,7 +219,7 @@ namespace StockMarket.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BatchId");
+                    b.Property<int?>("BatchId");
 
                     b.Property<DateTime>("CreatedDate");
 
@@ -240,6 +240,10 @@ namespace StockMarket.Data.Migrations
                     b.Property<DateTime>("UpdatedDate");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BatchId");
+
+                    b.HasIndex("ScripId");
 
                     b.ToTable("ScanResult");
                 });
@@ -345,6 +349,18 @@ namespace StockMarket.Data.Migrations
                     b.HasOne("StockMarket.Domain.Market", "Market")
                         .WithMany("Holiday")
                         .HasForeignKey("MarketId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("StockMarket.Domain.ScanResult", b =>
+                {
+                    b.HasOne("StockMarket.Domain.Batch", "Batch")
+                        .WithMany("ScanResult")
+                        .HasForeignKey("BatchId");
+
+                    b.HasOne("StockMarket.Domain.Scrip", "Scrip")
+                        .WithMany("ScanResult")
+                        .HasForeignKey("ScripId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

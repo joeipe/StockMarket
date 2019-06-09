@@ -10,6 +10,7 @@ namespace StockMarket.Domain
         {
             EntryOrder = new HashSet<EntryOrder>();
             Feed = new HashSet<Feed>();
+            ScanResult = new HashSet<ScanResult>();
         }
 
         public int MarketId { get; set; }
@@ -28,5 +29,6 @@ namespace StockMarket.Domain
         public Market Market { get; set; }
         public ICollection<EntryOrder> EntryOrder { get; set; }
         public ICollection<Feed> Feed { get; set; }
+        public ICollection<ScanResult> ScanResult { get; set; }
     }
 }

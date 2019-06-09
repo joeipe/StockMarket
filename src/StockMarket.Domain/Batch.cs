@@ -1,10 +1,15 @@
 ﻿using SharedKernel;
 using System;
+using System.Collections.Generic;
 
 namespace StockMarket.Domain
 {
     public class Batch : EntityBase
     {
+        public Batch()
+        {
+            ScanResult = new HashSet<ScanResult>();
+        }
         public int MarketId { get; set; }
         public DateTime Date { get; set; }
         public int StatusId { get; set; }
@@ -19,5 +24,6 @@ namespace StockMarket.Domain
         public string Remarks { get; set; }
 
         public Market Market { get; set; }
+        public ICollection<ScanResult> ScanResult { get; set; }
     }
 }

@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using System;
 
 namespace StockMarket.Data.Migrations
 {
@@ -25,28 +25,6 @@ namespace StockMarket.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Market", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ScanResult",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ScripId = table.Column<int>(nullable: false),
-                    BatchId = table.Column<int>(nullable: false),
-                    Date = table.Column<DateTime>(nullable: false),
-                    Price = table.Column<decimal>(nullable: false),
-                    ScanType = table.Column<int>(nullable: false),
-                    Status = table.Column<int>(nullable: true),
-                    LastModified = table.Column<DateTime>(nullable: true),
-                    Rank = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ScanResult", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -213,6 +191,40 @@ namespace StockMarket.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ScanResult",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ScripId = table.Column<int>(nullable: false),
+                    BatchId = table.Column<int>(nullable: true),
+                    Date = table.Column<DateTime>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false),
+                    ScanType = table.Column<int>(nullable: false),
+                    Status = table.Column<int>(nullable: true),
+                    LastModified = table.Column<DateTime>(nullable: true),
+                    Rank = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ScanResult", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ScanResult_Batch_BatchId",
+                        column: x => x.BatchId,
+                        principalTable: "Batch",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ScanResult_Scrip_ScripId",
+                        column: x => x.ScripId,
+                        principalTable: "Scrip",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ExitOrder",
                 columns: table => new
                 {
@@ -266,6 +278,16 @@ namespace StockMarket.Data.Migrations
                 column: "MarketId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ScanResult_BatchId",
+                table: "ScanResult",
+                column: "BatchId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ScanResult_ScripId",
+                table: "ScanResult",
+                column: "ScripId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Scrip_MarketId",
                 table: "Scrip",
                 column: "MarketId");
@@ -273,9 +295,6 @@ namespace StockMarket.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Batch");
-
             migrationBuilder.DropTable(
                 name: "ExitOrder");
 
@@ -293,6 +312,9 @@ namespace StockMarket.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "EntryOrder");
+
+            migrationBuilder.DropTable(
+                name: "Batch");
 
             migrationBuilder.DropTable(
                 name: "Scrip");
