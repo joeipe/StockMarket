@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StockMarket.Data.Services;
+using StockMarket.Business.Services;
 using StockMarket.Web.ViewModels;
+using System;
 
 namespace StockMarket.Web.Controllers
 {
@@ -13,20 +10,21 @@ namespace StockMarket.Web.Controllers
     [ApiController]
     public class StockMarketController : ControllerBase
     {
-        private StockMarketDataSevice _stockMarketDataSevice;
+        private StockMarketBusinessSevice _stockMarketBusinessSevice;
 
-        public StockMarketController(StockMarketDataSevice stockMarketDataSevice)
+        public StockMarketController(StockMarketBusinessSevice stockMarketBusinessSevice)
         {
-            _stockMarketDataSevice = stockMarketDataSevice;
+            _stockMarketBusinessSevice = stockMarketBusinessSevice;
         }
 
         #region Setting
+
         [HttpGet]
         public ActionResult GetSettings()
         {
             try
             {
-                return Ok(_stockMarketDataSevice.GetSettings());
+                return Ok(_stockMarketBusinessSevice.GetSettings());
             }
             catch (Exception ex)
             {
@@ -39,7 +37,7 @@ namespace StockMarket.Web.Controllers
         {
             try
             {
-                var settingVM = _stockMarketDataSevice.GetSettingById(id);
+                var settingVM = _stockMarketBusinessSevice.GetSettingById(id);
 
                 if (settingVM == null)
                 {
@@ -64,7 +62,7 @@ namespace StockMarket.Web.Controllers
                     return BadRequest(ModelState);
                 }
 
-                _stockMarketDataSevice.AddSetting(value);
+                _stockMarketBusinessSevice.AddSetting(value);
 
                 return Created("", value);
             }
@@ -84,7 +82,7 @@ namespace StockMarket.Web.Controllers
                     return BadRequest(ModelState);
                 }
 
-                _stockMarketDataSevice.UpdateSetting(value);
+                _stockMarketBusinessSevice.UpdateSetting(value);
 
                 return Ok();
             }
@@ -99,13 +97,13 @@ namespace StockMarket.Web.Controllers
         {
             try
             {
-                var settingVM = _stockMarketDataSevice.GetSettingById(id);
+                var settingVM = _stockMarketBusinessSevice.GetSettingById(id);
                 if (settingVM == null)
                 {
                     return NotFound();
                 }
 
-                _stockMarketDataSevice.DeleteSetting(settingVM);
+                _stockMarketBusinessSevice.DeleteSetting(settingVM);
 
                 return Ok();
             }
@@ -114,6 +112,7 @@ namespace StockMarket.Web.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
+
         #endregion Setting
     }
 }

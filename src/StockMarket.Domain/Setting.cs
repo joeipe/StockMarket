@@ -1,5 +1,4 @@
 ﻿using SharedKernel;
-using System;
 
 namespace StockMarket.Domain
 {
@@ -8,6 +7,6 @@ namespace StockMarket.Domain
         public int Type { get; set; }
         public string Key { get; set; }
         public string Value { get; set; }
-        public  int Status { get; set; }
+        public int Status { get; set; }
     }
 }

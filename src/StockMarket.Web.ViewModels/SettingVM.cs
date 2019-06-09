@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StockMarket.Web.ViewModels
+﻿namespace StockMarket.Web.ViewModels
 {
     public class SettingVM : VMBase
     {

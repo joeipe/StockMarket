@@ -1,8 +1,6 @@
 ﻿using StockMarket.Domain;
 using StockMarket.Web.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace StockMarket.Data.Services
 {
@@ -16,6 +14,7 @@ namespace StockMarket.Data.Services
         }
 
         #region Setting
+
         public IList<SettingVM> GetSettings()
         {
             var settingsData = _stockMarketUow.SettingsRepo.GetAll();
@@ -50,6 +49,7 @@ namespace StockMarket.Data.Services
             _stockMarketUow.SettingsRepo.Delete(settingData);
             _stockMarketUow.Save();
         }
+
         #endregion Setting
     }
 }

@@ -1,9 +1,6 @@
 ﻿using SharedKernel.Data;
 using SharedKernel.Interfaces;
 using StockMarket.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StockMarket.Data
 {

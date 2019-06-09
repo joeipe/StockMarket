@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using StockMarket.Domain;
 using StockMarket.Web.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StockMarket.Data
 {
