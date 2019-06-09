@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.Domain", "StockMarket.Domain\StockMarket.Domain.csproj", "{7AA44F5A-4FD0-4245-A672-1FC3BF7764CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.Domain", "StockMarket.Domain\StockMarket.Domain.csproj", "{7AA44F5A-4FD0-4245-A672-1FC3BF7764CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel", "SharedKernel\SharedKernel.csproj", "{978B1AB6-5A5A-493B-8F13-4B2D0CB5FADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel.Data", "SharedKernel.Data\SharedKernel.Data.csproj", "{B6DE405A-B5A0-4CC8-AC68-9F97D794A730}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.Data", "StockMarket.Data\StockMarket.Data.csproj", "{2CA4D62B-16B4-443C-9640-6C385EBDAB0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.Web.ViewModels", "StockMarket.Web.ViewModels\StockMarket.Web.ViewModels.csproj", "{10ED9CF3-D6D8-46E5-BE35-C777D03E771F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.Web", "StockMarket.Web\StockMarket.Web.csproj", "{865D26C1-126D-4E39-8F7A-122A5B94EA75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{7AA44F5A-4FD0-4245-A672-1FC3BF7764CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AA44F5A-4FD0-4245-A672-1FC3BF7764CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AA44F5A-4FD0-4245-A672-1FC3BF7764CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{978B1AB6-5A5A-493B-8F13-4B2D0CB5FADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{978B1AB6-5A5A-493B-8F13-4B2D0CB5FADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{978B1AB6-5A5A-493B-8F13-4B2D0CB5FADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{978B1AB6-5A5A-493B-8F13-4B2D0CB5FADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6DE405A-B5A0-4CC8-AC68-9F97D794A730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6DE405A-B5A0-4CC8-AC68-9F97D794A730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6DE405A-B5A0-4CC8-AC68-9F97D794A730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6DE405A-B5A0-4CC8-AC68-9F97D794A730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CA4D62B-16B4-443C-9640-6C385EBDAB0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA4D62B-16B4-443C-9640-6C385EBDAB0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA4D62B-16B4-443C-9640-6C385EBDAB0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA4D62B-16B4-443C-9640-6C385EBDAB0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10ED9CF3-D6D8-46E5-BE35-C777D03E771F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10ED9CF3-D6D8-46E5-BE35-C777D03E771F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10ED9CF3-D6D8-46E5-BE35-C777D03E771F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10ED9CF3-D6D8-46E5-BE35-C777D03E771F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{865D26C1-126D-4E39-8F7A-122A5B94EA75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{865D26C1-126D-4E39-8F7A-122A5B94EA75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{865D26C1-126D-4E39-8F7A-122A5B94EA75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{865D26C1-126D-4E39-8F7A-122A5B94EA75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
