@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using StockMarket.Domain;
 using StockMarket.Web.ViewModels;
+using System;
 
 namespace StockMarket.Data
 {
@@ -28,11 +29,15 @@ namespace StockMarket.Data
                 cfg.CreateMap<Batch, BatchVM>();
                 cfg.CreateMap<BatchVM, Batch>();
 
-                cfg.CreateMap<EntryOrder, EntryOrderVM>();
-                cfg.CreateMap<EntryOrderVM, EntryOrder>();
+                cfg.CreateMap<EntryOrder, EntryOrderVM>()
+                    .ForMember(vm => vm.Status, o => o.MapFrom(a => (a.Status).ToString()));
+                cfg.CreateMap<EntryOrderVM, EntryOrder>()
+                    .ForMember(o => o.Status, vm => vm.MapFrom(a => (Domain.Enums.OrderStatus)Enum.Parse(typeof(Domain.Enums.OrderStatus), a.Status)));
 
-                cfg.CreateMap<ExitOrder, ExitOrderVM>();
-                cfg.CreateMap<ExitOrderVM, ExitOrder>();
+                cfg.CreateMap<ExitOrder, ExitOrderVM>()
+                    .ForMember(vm => vm.Status, o => o.MapFrom(a => (a.Status).ToString()));
+                cfg.CreateMap<ExitOrderVM, ExitOrder>()
+                    .ForMember(o => o.Status, vm => vm.MapFrom(a => (Domain.Enums.OrderStatus)Enum.Parse(typeof(Domain.Enums.OrderStatus), a.Status)));
 
                 cfg.CreateMap<Feed, FeedVM>();
                 cfg.CreateMap<FeedVM, Feed>();
@@ -40,11 +45,17 @@ namespace StockMarket.Data
                 cfg.CreateMap<Holiday, HolidayVM>();
                 cfg.CreateMap<HolidayVM, Holiday>();
 
-                cfg.CreateMap<Market, MarketVM>();
-                cfg.CreateMap<MarketVM, Market>();
+                cfg.CreateMap<Market, MarketVM>()
+                    .ForMember(vm => vm.TimeZoneInfo, o => o.MapFrom(a => (a.TimeZoneInfo).ToString()));
+                cfg.CreateMap<MarketVM, Market>()
+                    .ForMember(o => o.TimeZoneInfo, vm => vm.MapFrom(a => (Domain.Enums.TimeZone)Enum.Parse(typeof(Domain.Enums.TimeZone), a.TimeZoneInfo)));
 
-                cfg.CreateMap<ScanResult, ScanResultVM>();
-                cfg.CreateMap<ScanResultVM, ScanResult>();
+                cfg.CreateMap<ScanResult, ScanResultVM>()
+                    .ForMember(vm => vm.ScanType, o => o.MapFrom(a => (a.ScanType).ToString()))
+                    .ForMember(vm => vm.Status, o => o.MapFrom(a => (a.Status).ToString()));
+                cfg.CreateMap<ScanResultVM, ScanResult>()
+                    .ForMember(o => o.ScanType, vm => vm.MapFrom(a => (Domain.Enums.OrderType)Enum.Parse(typeof(Domain.Enums.OrderType), a.ScanType)))
+                    .ForMember(o => o.Status, vm => vm.MapFrom(a => (Domain.Enums.ScanResultStatus)Enum.Parse(typeof(Domain.Enums.ScanResultStatus), a.Status)));
 
                 cfg.CreateMap<Scrip, ScripVM>();
                 cfg.CreateMap<ScripVM, Scrip>();

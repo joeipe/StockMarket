@@ -8,6 +8,6 @@ namespace StockMarket.Web.ViewModels
         public TimeSpan Opening { get; set; }
         public TimeSpan Closing { get; set; }
         public int Status { get; set; }
-        public int TimeZoneInfo { get; set; }
+        public string TimeZoneInfo { get; set; }
     }
 }

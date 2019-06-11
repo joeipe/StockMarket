@@ -150,6 +150,26 @@ namespace StockMarket.Web.Controllers
             }
         }
 
+        [HttpGet("{batchId}")]
+        public ActionResult GetEntryOrderByBatchId(int batchId)
+        {
+            try
+            {
+                var vm = _stockMarketBusinessSevice.GetEntryOrderByBatchId(batchId);
+
+                if (vm == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(vm);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex);
+            }
+        }
+
         [HttpPost]
         public ActionResult AddEntryOrder([FromBody] EntryOrderVM value)
         {
@@ -234,6 +254,26 @@ namespace StockMarket.Web.Controllers
             try
             {
                 var vm = _stockMarketBusinessSevice.GetExitOrderById(id);
+
+                if (vm == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(vm);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex);
+            }
+        }
+
+        [HttpGet("{batchId}")]
+        public ActionResult GetExitOrderByBatchId(int batchId)
+        {
+            try
+            {
+                var vm = _stockMarketBusinessSevice.GetExitOrderByBatchId(batchId);
 
                 if (vm == null)
                 {
@@ -626,6 +666,26 @@ namespace StockMarket.Web.Controllers
             try
             {
                 var vm = _stockMarketBusinessSevice.GetScanResultById(id);
+
+                if (vm == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(vm);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex);
+            }
+        }
+
+        [HttpGet("{batchId}")]
+        public ActionResult GetScanResultByBatchId(int batchId)
+        {
+            try
+            {
+                var vm = _stockMarketBusinessSevice.GetScanResultByBatchId(batchId);
 
                 if (vm == null)
                 {

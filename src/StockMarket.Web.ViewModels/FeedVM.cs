@@ -13,5 +13,7 @@ namespace StockMarket.Web.ViewModels
         public DateTime Date { get; set; }
         public int? StatusId { get; set; }
         public decimal Ltp { get; set; }
+
+        public ScripVM Scrip { get; set; }
     }
 }

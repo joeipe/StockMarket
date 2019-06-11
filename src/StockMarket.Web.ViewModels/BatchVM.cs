@@ -16,5 +16,7 @@ namespace StockMarket.Web.ViewModels
         public DateTime? OrderStart { get; set; }
         public DateTime? OrderFinish { get; set; }
         public string Remarks { get; set; }
+
+        public MarketVM Market { get; set; }
     }
 }
