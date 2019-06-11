@@ -12,5 +12,8 @@ namespace StockMarket.Web.ViewModels
         public string Status { get; set; }
         public DateTime? LastModified { get; set; }
         public int Rank { get; set; }
+
+        public ScripVM Scrip { get; set; }
+        public BatchVM Batch { get; set; }
     }
 }

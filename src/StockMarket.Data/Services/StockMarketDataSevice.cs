@@ -57,7 +57,11 @@ namespace StockMarket.Data.Services
 
         public IList<EntryOrderVM> GetEntryOrders()
         {
-            var data = _stockMarketUow.EntryOrderRepo.GetAll();
+            //var data = _stockMarketUow.EntryOrderRepo.GetAll();
+            var data = _stockMarketUow.EntryOrderRepo.GetAllInclude
+                (
+                    source => source.Include(x => x.Scrip)
+                );
             var vm = ObjectMapper.Mapper.Map<IList<EntryOrderVM>>(data);
             return vm;
         }
@@ -96,7 +100,11 @@ namespace StockMarket.Data.Services
 
         public IList<ExitOrderVM> GetExitOrders()
         {
-            var data = _stockMarketUow.ExitOrderRepo.GetAll();
+            //data = _stockMarketUow.ExitOrderRepo.GetAll();
+            var data = _stockMarketUow.ExitOrderRepo.GetAllInclude
+                (
+                    source => source.Include(x => x.EntryOrder)
+                );
             var vm = ObjectMapper.Mapper.Map<IList<ExitOrderVM>>(data);
             return vm;
         }
