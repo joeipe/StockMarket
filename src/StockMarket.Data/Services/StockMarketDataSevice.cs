@@ -73,6 +73,17 @@ namespace StockMarket.Data.Services
             return vm;
         }
 
+        public EntryOrderVM GetEntryOrderByBatchId(int batchId)
+        {
+            var data = _stockMarketUow.EntryOrderRepo.SearchForInclude
+                (
+                    x => x.BatchId == batchId,
+                    source => source.Include(x => x.Scrip)
+                );
+            var vm = ObjectMapper.Mapper.Map<EntryOrderVM>(data);
+            return vm;
+        }
+
         public void AddEntryOrder(EntryOrderVM value)
         {
             var data = ObjectMapper.Mapper.Map<EntryOrder>(value);
@@ -112,6 +123,18 @@ namespace StockMarket.Data.Services
         public ExitOrderVM GetExitOrderById(int id)
         {
             var data = _stockMarketUow.ExitOrderRepo.GetById(id);
+            var vm = ObjectMapper.Mapper.Map<ExitOrderVM>(data);
+            return vm;
+        }
+
+        public ExitOrderVM GetExitOrderByBatchId(int batchId)
+        {
+            var data = _stockMarketUow.ExitOrderRepo.SearchForInclude
+                (
+                    x => x.EntryOrder.BatchId == batchId,
+                    source => source.Include(x => x.EntryOrder)
+                                    .ThenInclude(x => x.Scrip)
+                );
             var vm = ObjectMapper.Mapper.Map<ExitOrderVM>(data);
             return vm;
         }
@@ -268,6 +291,17 @@ namespace StockMarket.Data.Services
         public ScanResultVM GetScanResultById(int id)
         {
             var data = _stockMarketUow.ScanResultRepo.GetById(id);
+            var vm = ObjectMapper.Mapper.Map<ScanResultVM>(data);
+            return vm;
+        }
+
+        public ScanResultVM GetScanResultByBatchId(int batchId)
+        {
+            var data = _stockMarketUow.ScanResultRepo.SearchForInclude
+                (
+                    x => x.BatchId == batchId,
+                    source => source.Include(x => x.Scrip)
+                );
             var vm = ObjectMapper.Mapper.Map<ScanResultVM>(data);
             return vm;
         }
