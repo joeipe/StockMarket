@@ -1,4 +1,5 @@
 ﻿using SharedKernel;
+using StockMarket.Domain.Enums;
 using System;
 
 namespace StockMarket.Domain
@@ -12,7 +13,7 @@ namespace StockMarket.Domain
         public int ExecutedQuantity { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public string BrockerRef { get; set; }
-        public int Status { get; set; }
+        public OrderStatus Status { get; set; }
 
         public EntryOrder EntryOrder { get; set; }
     }

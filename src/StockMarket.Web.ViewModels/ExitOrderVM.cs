@@ -11,6 +11,6 @@ namespace StockMarket.Web.ViewModels
         public int ExecutedQuantity { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public string BrockerRef { get; set; }
-        public int Status { get; set; }
+        public string Status { get; set; }
     }
 }

@@ -16,5 +16,7 @@ namespace StockMarket.Web.ViewModels
         public DateTime? LastFeed { get; set; }
         public DateTime? LastScan { get; set; }
         public string Remarks { get; set; }
+
+        public MarketVM Market { get; set; }
     }
 }

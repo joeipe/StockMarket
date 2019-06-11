@@ -18,9 +18,7 @@ namespace StockMarket.Data.Migrations
                     Opening = table.Column<TimeSpan>(nullable: false),
                     Closing = table.Column<TimeSpan>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    TimeZoneInfo = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false)
+                    TimeZoneInfo = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,9 +34,7 @@ namespace StockMarket.Data.Migrations
                     Type = table.Column<int>(nullable: false),
                     Key = table.Column<string>(nullable: true),
                     Value = table.Column<string>(nullable: true),
-                    Status = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false)
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,9 +58,7 @@ namespace StockMarket.Data.Migrations
                     AprovalFinish = table.Column<DateTime>(nullable: true),
                     OrderStart = table.Column<DateTime>(nullable: true),
                     OrderFinish = table.Column<DateTime>(nullable: true),
-                    Remarks = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false)
+                    Remarks = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -85,9 +79,7 @@ namespace StockMarket.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     MarketId = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
-                    Reason = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false)
+                    Reason = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -117,9 +109,7 @@ namespace StockMarket.Data.Migrations
                     StatusId = table.Column<int>(nullable: false),
                     LastFeed = table.Column<DateTime>(nullable: true),
                     LastScan = table.Column<DateTime>(nullable: true),
-                    Remarks = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false)
+                    Remarks = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -146,9 +136,7 @@ namespace StockMarket.Data.Migrations
                     ExecutedQuantity = table.Column<int>(nullable: false),
                     LastModifiedDate = table.Column<DateTime>(nullable: true),
                     BrockerRef = table.Column<string>(nullable: true),
-                    Status = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false)
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -175,9 +163,7 @@ namespace StockMarket.Data.Migrations
                     Volume = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     StatusId = table.Column<int>(nullable: true),
-                    Ltp = table.Column<decimal>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false)
+                    Ltp = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -203,9 +189,7 @@ namespace StockMarket.Data.Migrations
                     ScanType = table.Column<int>(nullable: false),
                     Status = table.Column<int>(nullable: true),
                     LastModified = table.Column<DateTime>(nullable: true),
-                    Rank = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false)
+                    Rank = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -237,9 +221,7 @@ namespace StockMarket.Data.Migrations
                     ExecutedQuantity = table.Column<int>(nullable: false),
                     LastModifiedDate = table.Column<DateTime>(nullable: true),
                     BrockerRef = table.Column<string>(nullable: true),
-                    Status = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false)
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

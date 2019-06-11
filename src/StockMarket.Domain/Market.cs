@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace StockMarket.Domain
 {
     public class Market : EntityBase
@@ -17,7 +18,7 @@ namespace StockMarket.Domain
         public TimeSpan Opening { get; set; }
         public TimeSpan Closing { get; set; }
         public int Status { get; set; }
-        public int TimeZoneInfo { get; set; }
+        public Enums.TimeZone TimeZoneInfo { get; set; }
 
         public ICollection<Batch> Batch { get; set; }
         public ICollection<Holiday> Holiday { get; set; }

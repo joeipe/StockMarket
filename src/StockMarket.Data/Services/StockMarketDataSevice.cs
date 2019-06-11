@@ -1,4 +1,5 @@
-﻿using StockMarket.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using StockMarket.Domain;
 using StockMarket.Web.ViewModels;
 using System.Collections.Generic;
 
@@ -290,7 +291,12 @@ namespace StockMarket.Data.Services
 
         public IList<ScripVM> GetScrips()
         {
-            var data = _stockMarketUow.ScripRepo.GetAll();
+            //var data = _stockMarketUow.ScripRepo.GetAll();
+            var data = _stockMarketUow.ScripRepo.GetAllInclude
+                (
+                    source => source
+                        .Include(x => x.Market)
+                );
             var vm = ObjectMapper.Mapper.Map<IList<ScripVM>>(data);
             return vm;
         }
