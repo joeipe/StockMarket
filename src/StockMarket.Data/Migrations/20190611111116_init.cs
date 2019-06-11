@@ -45,8 +45,7 @@ namespace StockMarket.Data.Migrations
                 name: "Batch",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<int>(nullable: false),
                     MarketId = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     StatusId = table.Column<int>(nullable: false),

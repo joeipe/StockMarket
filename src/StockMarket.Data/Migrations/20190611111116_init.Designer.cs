@@ -10,7 +10,7 @@ using StockMarket.Data;
 namespace StockMarket.Data.Migrations
 {
     [DbContext(typeof(StockMarketContext))]
-    [Migration("20190610235556_init")]
+    [Migration("20190611111116_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,9 +23,7 @@ namespace StockMarket.Data.Migrations
 
             modelBuilder.Entity("StockMarket.Domain.Batch", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("Id");
 
                     b.Property<DateTime?>("AprovalFinish");
 

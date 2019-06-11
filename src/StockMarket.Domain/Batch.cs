@@ -1,6 +1,7 @@
 ﻿using SharedKernel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StockMarket.Domain
 {
@@ -10,6 +11,8 @@ namespace StockMarket.Domain
         {
             ScanResult = new HashSet<ScanResult>();
         }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public new int Id { get; set; }
         public int MarketId { get; set; }
         public DateTime Date { get; set; }
         public int StatusId { get; set; }
