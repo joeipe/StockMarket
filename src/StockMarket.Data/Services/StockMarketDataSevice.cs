@@ -57,11 +57,7 @@ namespace StockMarket.Data.Services
 
         public IList<EntryOrderVM> GetEntryOrders()
         {
-            //var data = _stockMarketUow.EntryOrderRepo.GetAll();
-            var data = _stockMarketUow.EntryOrderRepo.GetAllInclude
-                (
-                    source => source.Include(x => x.Scrip)
-                );
+            var data = _stockMarketUow.EntryOrderRepo.GetAll();
             var vm = ObjectMapper.Mapper.Map<IList<EntryOrderVM>>(data);
             return vm;
         }
@@ -73,14 +69,14 @@ namespace StockMarket.Data.Services
             return vm;
         }
 
-        public EntryOrderVM GetEntryOrderByBatchId(int batchId)
+        public List<EntryOrderVM> GetEntryOrderByBatchId(int batchId)
         {
             var data = _stockMarketUow.EntryOrderRepo.SearchForInclude
                 (
                     x => x.BatchId == batchId,
                     source => source.Include(x => x.Scrip)
                 );
-            var vm = ObjectMapper.Mapper.Map<EntryOrderVM>(data);
+            var vm = ObjectMapper.Mapper.Map<List<EntryOrderVM>>(data);
             return vm;
         }
 
@@ -111,11 +107,7 @@ namespace StockMarket.Data.Services
 
         public IList<ExitOrderVM> GetExitOrders()
         {
-            //data = _stockMarketUow.ExitOrderRepo.GetAll();
-            var data = _stockMarketUow.ExitOrderRepo.GetAllInclude
-                (
-                    source => source.Include(x => x.EntryOrder)
-                );
+            var data = _stockMarketUow.ExitOrderRepo.GetAll();
             var vm = ObjectMapper.Mapper.Map<IList<ExitOrderVM>>(data);
             return vm;
         }
@@ -127,7 +119,7 @@ namespace StockMarket.Data.Services
             return vm;
         }
 
-        public ExitOrderVM GetExitOrderByBatchId(int batchId)
+        public List<ExitOrderVM> GetExitOrderByBatchId(int batchId)
         {
             var data = _stockMarketUow.ExitOrderRepo.SearchForInclude
                 (
@@ -135,7 +127,7 @@ namespace StockMarket.Data.Services
                     source => source.Include(x => x.EntryOrder)
                                     .ThenInclude(x => x.Scrip)
                 );
-            var vm = ObjectMapper.Mapper.Map<ExitOrderVM>(data);
+            var vm = ObjectMapper.Mapper.Map<List<ExitOrderVM>>(data);
             return vm;
         }
 
@@ -295,14 +287,14 @@ namespace StockMarket.Data.Services
             return vm;
         }
 
-        public ScanResultVM GetScanResultByBatchId(int batchId)
+        public List<ScanResultVM> GetScanResultByBatchId(int batchId)
         {
             var data = _stockMarketUow.ScanResultRepo.SearchForInclude
                 (
                     x => x.BatchId == batchId,
                     source => source.Include(x => x.Scrip)
                 );
-            var vm = ObjectMapper.Mapper.Map<ScanResultVM>(data);
+            var vm = ObjectMapper.Mapper.Map<List<ScanResultVM>>(data);
             return vm;
         }
 
@@ -333,12 +325,7 @@ namespace StockMarket.Data.Services
 
         public IList<ScripVM> GetScrips()
         {
-            //var data = _stockMarketUow.ScripRepo.GetAll();
-            var data = _stockMarketUow.ScripRepo.GetAllInclude
-                (
-                    source => source
-                        .Include(x => x.Market)
-                );
+            var data = _stockMarketUow.ScripRepo.GetAll();
             var vm = ObjectMapper.Mapper.Map<IList<ScripVM>>(data);
             return vm;
         }

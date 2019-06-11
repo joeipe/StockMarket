@@ -156,12 +156,6 @@ namespace StockMarket.Web.Controllers
             try
             {
                 var vm = _stockMarketBusinessSevice.GetEntryOrderByBatchId(batchId);
-
-                if (vm == null)
-                {
-                    return NotFound();
-                }
-
                 return Ok(vm);
             }
             catch (Exception ex)
@@ -274,12 +268,6 @@ namespace StockMarket.Web.Controllers
             try
             {
                 var vm = _stockMarketBusinessSevice.GetExitOrderByBatchId(batchId);
-
-                if (vm == null)
-                {
-                    return NotFound();
-                }
-
                 return Ok(vm);
             }
             catch (Exception ex)
@@ -686,12 +674,6 @@ namespace StockMarket.Web.Controllers
             try
             {
                 var vm = _stockMarketBusinessSevice.GetScanResultByBatchId(batchId);
-
-                if (vm == null)
-                {
-                    return NotFound();
-                }
-
                 return Ok(vm);
             }
             catch (Exception ex)

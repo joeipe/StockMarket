@@ -58,7 +58,7 @@ namespace StockMarket.Business.Services
             return vm;
         }
 
-        public EntryOrderVM GetEntryOrderByBatchId(int batchId)
+        public List<EntryOrderVM> GetEntryOrderByBatchId(int batchId)
         {
             var vm = _stockMarketDataSevice.GetEntryOrderByBatchId(batchId);
             return vm;
@@ -95,7 +95,7 @@ namespace StockMarket.Business.Services
             return vm;
         }
 
-        public ExitOrderVM GetExitOrderByBatchId(int batchId)
+        public List<ExitOrderVM> GetExitOrderByBatchId(int batchId)
         {
             var vm = _stockMarketDataSevice.GetExitOrderByBatchId(batchId);
             return vm;
@@ -225,7 +225,7 @@ namespace StockMarket.Business.Services
             return vm;
         }
 
-        public ScanResultVM GetScanResultByBatchId(int batchId)
+        public List<ScanResultVM> GetScanResultByBatchId(int batchId)
         {
             var vm = _stockMarketDataSevice.GetScanResultByBatchId(batchId);
             return vm;
