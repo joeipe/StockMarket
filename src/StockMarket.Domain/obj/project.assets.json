@@ -702,23 +702,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Joe\\.nuget\\packages\\": {},
+    "C:\\Users\\joe.Ipe\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Development\\StockMarket\\src\\StockMarket.Domain\\StockMarket.Domain.csproj",
+      "projectUniqueName": "C:\\Development\\PoC\\StockMarket\\src\\StockMarket.Domain\\StockMarket.Domain.csproj",
       "projectName": "StockMarket.Domain",
-      "projectPath": "C:\\Development\\StockMarket\\src\\StockMarket.Domain\\StockMarket.Domain.csproj",
-      "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-      "outputPath": "C:\\Development\\StockMarket\\src\\StockMarket.Domain\\obj\\",
+      "projectPath": "C:\\Development\\PoC\\StockMarket\\src\\StockMarket.Domain\\StockMarket.Domain.csproj",
+      "packagesPath": "C:\\Users\\joe.Ipe\\.nuget\\packages\\",
+      "outputPath": "C:\\Development\\PoC\\StockMarket\\src\\StockMarket.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Joe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\joe.Ipe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -731,8 +731,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Development\\StockMarket\\src\\SharedKernel\\SharedKernel.csproj": {
-              "projectPath": "C:\\Development\\StockMarket\\src\\SharedKernel\\SharedKernel.csproj"
+            "C:\\Development\\PoC\\StockMarket\\src\\SharedKernel\\SharedKernel.csproj": {
+              "projectPath": "C:\\Development\\PoC\\StockMarket\\src\\SharedKernel\\SharedKernel.csproj"
             }
           }
         }
