@@ -9,12 +9,13 @@ import { HomeModule } from './home/home.module';
 import { ReviewModule } from './review/review.module';
 import { OrdersModule } from './orders/orders.module';
 import { TradeModule } from './trade/trade.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
+    HttpClientModule,
+    
     SharedModule,
     CoreModule,
     ShellModule,

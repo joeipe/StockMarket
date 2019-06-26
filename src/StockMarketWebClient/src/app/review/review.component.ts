@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StockMarketService } from '../core/services/stock-market.service';
+import { ScanResult } from '../shared/models/ScanResult';
 
 @Component({
     selector: 'stk-review',
@@ -6,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
+    public gridData: ScanResult[];
+    public batchId: number = 3;
 
-    constructor() {}
+    constructor(private stockMarketService: StockMarketService) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.loadScanResult();
+    }
+    
+    loadScanResult(): void {
+        this.stockMarketService.GetScanResultByBatchId(this.batchId).subscribe((data) => {
+            this.gridData = data;
+        });
+    }
 }
