@@ -5,30 +5,7 @@
         <h1 id="containers">Trade</h1>
       </div>
       <div class="bs-component">
-        <kendo-grid [data]="gridData" [height]="410">
-          <kendo-grid-column field="ProductID" title="ID" width="40">
-          </kendo-grid-column>
-          <kendo-grid-column field="ProductName" title="Name" width="250">
-          </kendo-grid-column>
-          <kendo-grid-column field="Category.CategoryName" title="Category">
-          </kendo-grid-column>
-          <kendo-grid-column field="UnitPrice" title="Price" width="80">
-          </kendo-grid-column>
-          <kendo-grid-column field="UnitsInStock" title="In stock" width="80">
-          </kendo-grid-column>
-          <kendo-grid-column field="Discontinued" title="Discontinued" width="120">
-            <ng-template kendoGridCellTemplate let-dataItem>
-              <input type="checkbox" [checked]="dataItem.Discontinued" disabled />
-            </ng-template>
-          </kendo-grid-column>
-        </kendo-grid>
-        <div class="example-wrapper">
-          <div class="example-col">
-            <button kendoButton (click)="onButtonClick()">Default</button>
-            <button kendoButton (click)="onButtonClick()" [primary]="true">Primary</button>
-            <button kendoButton (click)="onButtonClick()" [disabled]="true">Disabled</button>
-          </div>
-        </div>
+        <p>trade works!</p>
       </div>
     </div>
   </div>

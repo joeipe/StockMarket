@@ -9,7 +9,7 @@ import { ScanResult } from '../shared/models/ScanResult';
 })
 export class ReviewComponent implements OnInit {
     public gridData: ScanResult[];
-    public batchId: number = 3;
+    public batchId: number = 19031101;
 
     constructor(private stockMarketService: StockMarketService) {}
 

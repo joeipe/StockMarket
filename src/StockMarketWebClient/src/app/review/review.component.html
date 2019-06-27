@@ -6,7 +6,11 @@
       </div>
       <div class="bs-component">
         <kendo-grid [data]="gridData" [height]="410">
-          <kendo-grid-column field="ScripId" title="Scrip ID" width="40"></kendo-grid-column>
+          <kendo-grid-column field="scrip.symbol" title="Symbol" width="30"></kendo-grid-column>
+          <kendo-grid-column field="scrip.name" title="Name" width="30"></kendo-grid-column>
+          <kendo-grid-column field="rank" title="Rank" width="10"></kendo-grid-column>
+          <kendo-grid-column field="price" title="Price" width="10"></kendo-grid-column>
+          <kendo-grid-column field="status" title="Status" width="10"></kendo-grid-column>
         </kendo-grid>
       </div>
     </div>

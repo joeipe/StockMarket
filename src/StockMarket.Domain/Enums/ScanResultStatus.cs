@@ -6,6 +6,7 @@ namespace StockMarket.Domain.Enums
 {
     public enum ScanResultStatus
     {
+        Unknown = 0,
         ScreeningComplete = 1,
         ReadyToOrder = 2
     }
