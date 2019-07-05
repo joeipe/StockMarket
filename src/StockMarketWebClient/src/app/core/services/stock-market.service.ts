@@ -15,6 +15,14 @@ export class StockMarketService {
 
   constructor(private _http: HttpClient) { }
 
+  //Batch
+  GetLatestBatchId(): Observable<number> {
+    return this._http.get<number>(`${this.apiURL}/GetLatestBatchId`)
+    .pipe(
+        catchError(this.handleError),
+    );
+  }
+
   // Review
   GetScanResultByBatchId(batchId: number): Observable<ScanResult[]> {
     return this._http.get<ScanResult[]>(`${this.apiURL}/GetScanResultByBatchId/${batchId}`)

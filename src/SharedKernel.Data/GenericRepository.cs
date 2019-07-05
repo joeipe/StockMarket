@@ -51,6 +51,11 @@ namespace SharedKernel.Data
             return _dataTable.ToList();
         }
 
+        public virtual IEnumerable<TEntity> GetByQuery(string sqlQuery)
+        {
+            return _dataTable.FromSql(sqlQuery).ToList();
+        }
+
         public virtual TEntity GetById(int id)
         {
             return _dataTable.SingleOrDefault(e => e.Id == id);

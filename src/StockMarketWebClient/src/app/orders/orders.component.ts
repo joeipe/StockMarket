@@ -3,7 +3,7 @@ import { EntryOrder } from '../shared/models/EntryOrder';
 import { StockMarketService } from '../core/services/stock-market.service';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { RowClassArgs } from '@progress/kendo-angular-grid';
+import { RowClassArgs, GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 
 @Component({
   selector: 'stk-orders',
@@ -12,13 +12,25 @@ import { RowClassArgs } from '@progress/kendo-angular-grid';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-  public gridData: any[];
-  public batchId: number = 19040101;
+  public orderResults: any[];
+  public batchId: number;
+
+  public gridView: GridDataResult;
+  public pageSize = 10;
+  public skip = 0;
+  private data: Object[];
 
   constructor(private stockMarketService: StockMarketService) { }
 
   ngOnInit() {
-    this.loadOrder();
+    this.getLatestBatchId();
+  }
+
+  getLatestBatchId(): void {
+    this.stockMarketService.GetLatestBatchId().subscribe((data) => {
+        this.batchId = data;
+        this.loadOrder();
+    });
   }
 
   loadOrder(): void {
@@ -27,9 +39,9 @@ export class OrdersComponent implements OnInit {
       this.stockMarketService.GetEntryOrderByBatchId(this.batchId).pipe(map(r => r.map(v => (
           {id: v.id, orderType: 'entry', symbol: v.scrip.symbol, name: v.scrip.name, quantity: v.orderQuantity, price: v.price, status: v.status}
         )))),
-        this.stockMarketService.GetExitOrderByBatchId(this.batchId).pipe(map(r => r.map(v => (
-          {id: v.id, orderType: 'exit', symbol: v.entryOrder.scrip.symbol, name: v.entryOrder.scrip.name, quantity: v.orderQuantity, price: v.price, status: v.status}
-        ))))
+      this.stockMarketService.GetExitOrderByBatchId(this.batchId).pipe(map(r => r.map(v => (
+        {id: v.id, orderType: 'exit', symbol: v.entryOrder.scrip.symbol, name: v.entryOrder.scrip.name, quantity: v.orderQuantity, price: v.price, status: v.status}
+      ))))
       ]
     );
 
@@ -37,7 +49,11 @@ export class OrdersComponent implements OnInit {
       const entryOrder = responseList[0];
       const exitOrder = responseList[1];
 
-      this.gridData = [ ...entryOrder, ...exitOrder];
+      this.orderResults = [ ...entryOrder, ...exitOrder];
+      this.gridView = {
+        data: this.orderResults.slice(this.skip, this.skip + this.pageSize),
+        total: this.orderResults.length
+    };
     });
   }
 
@@ -51,4 +67,9 @@ export class OrdersComponent implements OnInit {
         return {};
      }
    }
+
+   public pageChange(event: PageChangeEvent): void {
+    this.skip = event.skip;
+    this.loadOrder();
+  }
 }

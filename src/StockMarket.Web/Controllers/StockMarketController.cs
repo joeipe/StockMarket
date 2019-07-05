@@ -52,6 +52,26 @@ namespace StockMarket.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult GetLatestBatchId()
+        {
+            try
+            {
+                var bId = _stockMarketBusinessSevice.GetLatestBatchId();
+
+                if (bId == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(bId);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex);
+            }
+        }
+
         [HttpPost]
         public ActionResult AddBatch([FromBody] BatchVM value)
         {

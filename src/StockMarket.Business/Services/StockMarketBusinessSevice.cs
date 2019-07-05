@@ -27,6 +27,12 @@ namespace StockMarket.Business.Services
             return vm;
         }
 
+        public int? GetLatestBatchId()
+        {
+            var bId = _stockMarketDataSevice.GetLatestBatchId();
+            return bId;
+        }
+
         public void AddBatch(BatchVM value)
         {
             _stockMarketDataSevice.AddBatch(value);

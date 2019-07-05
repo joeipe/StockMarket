@@ -2,6 +2,7 @@
 using StockMarket.Domain;
 using StockMarket.Web.ViewModels;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StockMarket.Data.Services
 {
@@ -28,6 +29,12 @@ namespace StockMarket.Data.Services
             var data = _stockMarketUow.BatchRepo.GetById(id);
             var vm = ObjectMapper.Mapper.Map<BatchVM>(data);
             return vm;
+        }
+
+        public int? GetLatestBatchId()
+        {
+            var data = _stockMarketUow.BatchRepo.GetByQuery("select * from Batch where Id=(select max(Id) from Batch)");
+            return data.FirstOrDefault()?.Id;
         }
 
         public void AddBatch(BatchVM value)
