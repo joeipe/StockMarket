@@ -4,9 +4,10 @@ import { RouterModule } from '@angular/router';
 
 import { ShellComponent } from './shell.component';
 import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [ShellComponent, HeaderComponent],
+  declarations: [ShellComponent, HeaderComponent, SidebarComponent],
   imports: [
     CommonModule, RouterModule
   ]

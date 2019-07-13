@@ -33,7 +33,7 @@ namespace StockMarket.Data.Services
 
         public int? GetLatestBatchId()
         {
-            var data = _stockMarketUow.BatchRepo.GetByQuery("select * from Batch where Id=(select max(Id) from Batch)");
+            var data = _stockMarketUow.BatchRepo.GetByQuery("select * from Batch where Date=(select max(Date) from Batch)");
             return data.FirstOrDefault()?.Id;
         }
 
@@ -66,6 +66,8 @@ namespace StockMarket.Data.Services
         {
             var data = _stockMarketUow.EntryOrderRepo.GetAll();
             var vm = ObjectMapper.Mapper.Map<IList<EntryOrderVM>>(data);
+
+
             return vm;
         }
 

@@ -9,7 +9,8 @@ import { HomeModule } from './home/home.module';
 import { ReviewModule } from './review/review.module';
 import { OrdersModule } from './orders/orders.module';
 import { TradeModule } from './trade/trade.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './core/http/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
 
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
