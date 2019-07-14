@@ -51,7 +51,7 @@ export class ReviewComponent implements OnInit {
         this.loadScanResult();
     }
     
-    public addHandler() {
+    public addHandler({dataItem}) {
         this.editDataItem = {} as ScanResult;
         this.isNew = true;
     }
