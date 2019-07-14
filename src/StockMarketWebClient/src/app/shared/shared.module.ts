@@ -5,6 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { NumericTextBoxModule } from '@progress/kendo-angular-inputs';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+//import { InputsModule } from '@progress/kendo-angular-inputs';
 
 @NgModule({
   declarations: [],
@@ -15,7 +19,10 @@ import { GridModule } from '@progress/kendo-angular-grid';
     BrowserModule,
     BrowserAnimationsModule,
     ButtonsModule,
-    GridModule
+    GridModule,
+    DialogsModule,
+    NumericTextBoxModule, //InputsModule
+    DropDownsModule
   ]
 })
 export class SharedModule { }

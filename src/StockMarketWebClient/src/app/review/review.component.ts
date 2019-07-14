@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { StockMarketService } from '../core/services/stock-market.service';
 import { ScanResult } from '../shared/models/ScanResult';
 import { PageChangeEvent, GridDataResult } from '@progress/kendo-angular-grid';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { State, process } from '@progress/kendo-data-query';
 
 @Component({
     selector: 'stk-review',
@@ -9,14 +12,19 @@ import { PageChangeEvent, GridDataResult } from '@progress/kendo-angular-grid';
     styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-    public scanResults: ScanResult[];
     public batchId: number;
+    public scanResults: ScanResult[];
+    
+    public view: Observable<GridDataResult>;
+    public gridState: State = {
+        sort: [],
+        skip: 0,
+        take: 10
+    };
 
-    public gridView: GridDataResult;
-    public pageSize = 10;
-    public skip = 0;
-    private data: Object[];
-
+    public editDataItem: ScanResult;
+    public isNew: boolean;
+    
     constructor(private stockMarketService: StockMarketService) {}
 
     ngOnInit() {
@@ -33,15 +41,44 @@ export class ReviewComponent implements OnInit {
     loadScanResult(): void {
         this.stockMarketService.GetScanResultByBatchId(this.batchId).subscribe((data) => {
             this.scanResults = data;
-            this.gridView = {
-                data: this.scanResults.slice(this.skip, this.skip + this.pageSize),
-                total: this.scanResults.length
-            };
+            this.view = of(process(data, this.gridState));
         });
     }
 
-    public pageChange(event: PageChangeEvent): void {
-        this.skip = event.skip;
+    public onStateChange(state: State) {
+        this.gridState = state;
+
         this.loadScanResult();
+    }
+    
+    public addHandler() {
+        this.editDataItem = {} as ScanResult;
+        this.isNew = true;
+    }
+
+    public editHandler({dataItem}) {
+        this.editDataItem = dataItem;
+        this.isNew = false;
+    }
+
+    public removeHandler({dataItem}) {
+        let scanResult = {} as ScanResult;
+        scanResult = dataItem;
+        this.stockMarketService.DeleteScanResult(scanResult.id).subscribe();
+    }
+
+    public cancelHandler() {
+        this.editDataItem = undefined;
+    }
+
+    public saveHandler(scanResult: ScanResult) {
+        if(this.isNew) {
+            this.stockMarketService.AddScanResult(scanResult).subscribe();
+        } else {
+            scanResult.isDirty = true;
+            this.stockMarketService.UpdateScanResult(scanResult).subscribe();
+        }
+
+        this.editDataItem = undefined;
     }
 }

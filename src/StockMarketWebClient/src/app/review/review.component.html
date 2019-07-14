@@ -6,19 +6,36 @@
       </div>
       <div class="bs-component">
         <kendo-grid 
-          [data]="gridView"
-          [pageSize]="pageSize"
-          [skip]="skip"
-          [pageable]="true"
-          [height]="500"
-          (pageChange)="pageChange($event)"
+          [data]="view | async"
+          [height]="533"
+          [pageSize]="gridState.take" [skip]="gridState.skip" [sort]="gridState.sort"
+          [pageable]="true" [sortable]="true"
+          (dataStateChange)="onStateChange($event)"
+          (edit)="editHandler($event)" (remove)="removeHandler($event)"
+          (add)="addHandler($event)"
         >
-          <kendo-grid-column field="scrip.symbol" title="Symbol" width="30"></kendo-grid-column>
+          <!--
+          <ng-template kendoGridToolbarTemplate>
+            <button kendoGridAddCommand>Add new</button>
+          </ng-template>
+          -->
+          <kendo-grid-column field="scrip.symbol" title="Symbol" width="20"></kendo-grid-column>
           <kendo-grid-column field="scrip.name" title="Name" width="30"></kendo-grid-column>
           <kendo-grid-column field="rank" title="Rank" width="10"></kendo-grid-column>
           <kendo-grid-column field="price" title="Price" width="10"></kendo-grid-column>
           <kendo-grid-column field="status" title="Status" width="10"></kendo-grid-column>
+          <kendo-grid-command-column title="command" width="20">
+            <ng-template kendoGridCellTemplate>
+                <button kendoGridEditCommand [primary]="true">Edit</button>
+                <!--<button kendoGridRemoveCommand>Delete</button>-->
+            </ng-template>
+          </kendo-grid-command-column>
         </kendo-grid>
+
+        <stk-review-edit-form [model]="editDataItem" [isNew]="isNew"
+          (save)="saveHandler($event)"
+          (cancel)="cancelHandler()">
+        </stk-review-edit-form>
       </div>
     </div>
   </div>

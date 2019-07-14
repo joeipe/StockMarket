@@ -31,6 +31,27 @@ export class StockMarketService {
     );
   }
 
+  AddScanResult(value: ScanResult):  Observable<any> {
+    return this._http.post(`${this.apiURL}/AddScanResult`, value)
+    .pipe(
+        catchError(this.handleError),
+    );
+  }
+
+  UpdateScanResult(value: ScanResult):  Observable<any> {
+    return this._http.post(`${this.apiURL}/UpdateScanResult`, value)
+    .pipe(
+        catchError(this.handleError),
+    );
+  }
+
+  DeleteScanResult(id: number):  Observable<any> {
+    return this._http.delete(`${this.apiURL}/DeleteScanResult/${id}`)
+    .pipe(
+        catchError(this.handleError),
+    );
+  }
+
   // Orders
   GetEntryOrderByBatchId(batchId: number): Observable<EntryOrder[]> {
     return this._http.get<EntryOrder[]>(`${this.apiURL}/GetEntryOrderByBatchId/${batchId}`)

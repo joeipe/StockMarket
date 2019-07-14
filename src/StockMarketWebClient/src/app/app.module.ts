@@ -11,6 +11,10 @@ import { OrdersModule } from './orders/orders.module';
 import { TradeModule } from './trade/trade.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/http/auth.interceptor';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [AppComponent],
