@@ -1,0 +1,31 @@
+<kendo-dialog *ngIf="active" [width]="350" [height]="600" (close)="closeForm()">
+    <kendo-dialog-titlebar>
+        Edit scan result
+      </kendo-dialog-titlebar>
+      <form novalidate [formGroup]="editForm" class="k-form">
+        <label class="k-form-field">
+            <span>Symbol</span>
+            <span>{{orderResult?.symbol}}</span>
+        </label>
+        <label class="k-form-field">
+            <span>Name</span>
+            <span>{{orderResult?.name}}</span>
+        </label>
+        <label class="k-form-field">
+            <span>Quantity</span>
+            <kendo-numerictextbox class="form-control" formControlName="Quantity" [min]="0" [max]="100000"></kendo-numerictextbox>
+        </label>
+        <label class="k-form-field">
+            <span>Price</span>
+            <kendo-numerictextbox class="form-control" formControlName="Price" [min]="0" [max]="100000"></kendo-numerictextbox>
+        </label>
+        <label class="k-form-field">
+            <span>Status</span>
+            <kendo-dropdownlist formControlName="Status" [data]="statusListItems"></kendo-dropdownlist>
+        </label>
+      </form>
+      <kendo-dialog-actions>
+        <button class="k-button" (click)="onCancel($event)">Cancel</button>
+        <button class="k-button k-primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+      </kendo-dialog-actions>
+</kendo-dialog>

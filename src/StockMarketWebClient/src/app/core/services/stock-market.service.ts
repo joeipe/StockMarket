@@ -60,8 +60,22 @@ export class StockMarketService {
     );
   }
 
+  UpdateEntryOrder(value: EntryOrder):  Observable<any> {
+    return this._http.post(`${this.apiURL}/UpdateEntryOrder`, value)
+    .pipe(
+        catchError(this.handleError),
+    );
+  }
+
   GetExitOrderByBatchId(batchId: number): Observable<ExitOrder[]> {
     return this._http.get<ExitOrder[]>(`${this.apiURL}/GetExitOrderByBatchId/${batchId}`)
+    .pipe(
+        catchError(this.handleError),
+    );
+  }
+
+  UpdateExitOrder(value: ExitOrder):  Observable<any> {
+    return this._http.post(`${this.apiURL}/UpdateExitOrder`, value)
     .pipe(
         catchError(this.handleError),
     );
